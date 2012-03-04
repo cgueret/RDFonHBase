@@ -8,21 +8,17 @@ import javax.jdo.annotations.Persistent;
 
 import com.hp.hpl.jena.graph.Node;
 
-/**
- * @author Christophe Guéret <christophe.gueret@gmail.com>
- * 
- */
 @PersistenceCapable
 public class Triple {
 
 	@Persistent
-	private Node subject = null;
+	private String subject = null;
 
 	@Persistent
-	private Node predicate = null;
+	private String predicate = null;
 
 	@Persistent
-	private Node object = null;
+	private String object = null;
 
 	/**
 	 * @param s
@@ -30,53 +26,42 @@ public class Triple {
 	 * @param o
 	 */
 	public Triple(Node s, Node p, Node o) {
-		subject = s;
-		predicate = p;
-		object = o;
+		subject = s.toString();
+		predicate = p.toString();
+		object = o.toString();
 	}
 
 	/**
 	 * @return the subject
 	 */
-	public Node getSubject() {
+	public String getSubject() {
 		return subject;
-	}
-
-	/**
-	 * @param subject
-	 *            the subject to set
-	 */
-	public void setSubject(Node subject) {
-		this.subject = subject;
 	}
 
 	/**
 	 * @return the object
 	 */
-	public Node getObject() {
+	public String getObject() {
 		return object;
-	}
-
-	/**
-	 * @param object
-	 *            the object to set
-	 */
-	public void setObject(Node object) {
-		this.object = object;
 	}
 
 	/**
 	 * @return the predicate
 	 */
-	public Node getPredicate() {
+	public String getPredicate() {
 		return predicate;
 	}
 
-	/**
-	 * @param predicate
-	 *            the predicate to set
-	 */
-	public void setPredicate(Node predicate) {
-		this.predicate = predicate;
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Triple [subject=");
+		builder.append(subject);
+		builder.append(", predicate=");
+		builder.append(predicate);
+		builder.append(", object=");
+		builder.append(object);
+		builder.append("]");
+		return builder.toString();
 	}
 }
