@@ -1,0 +1,2 @@
+http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/#disabling-ipv6
+http://stackoverflow.com/questions/7414193/connecting-and-persisting-to-hbase
